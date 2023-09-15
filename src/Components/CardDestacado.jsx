@@ -1,11 +1,13 @@
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { themeContext } from "../context/themeContext";
 
 const CardDestacado = ({destacado}) => {
-    let {theme} = "light"
+    let {theme} = useContext(themeContext)
     return (
         <>
-        <div className={{theme} = "light" ? `card` : `cardDark`}>
+        <div className={`card text-bg-${theme.opcion}`}>
             <Link to={`/dentist/${destacado.id}`}>
                 <img
                 className="card-img-top"

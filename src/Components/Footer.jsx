@@ -1,7 +1,9 @@
 import styles from "./Footer.module.css";
+import { themeContext } from "../context/themeContext";
+import { useContext } from "react";
 
 const Footer = () => {
-    let {theme} = "light"
+  let {theme, changeTheme} = useContext(themeContext) 
     const scrollToTop = () => {
         window.scrollTo(0, 0)
     }
@@ -9,7 +11,7 @@ const Footer = () => {
         <footer>
       <div className={styles.footerWrapper}>
         <button className={`btn btn-danger ${styles.top}`} onClick={scrollToTop}>Volver arriba</button>
-        <div className={`navbar-${theme} bg-${theme}} ${styles.footer}`}>
+        <div className={`navbar-${theme.opcion} bg-${theme.opcion} ${styles.footer}`}>
           <div className="container">
             <div className={`row`}>
               <div className="col-sm-12 col-lg-6">

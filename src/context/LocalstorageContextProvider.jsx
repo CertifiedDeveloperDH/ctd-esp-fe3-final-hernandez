@@ -16,10 +16,22 @@ const LocalstorageContextProvider = ({children}) => {
                 arrayDestacados.push(data)
                 localStorage.setItem("destacados", JSON.stringify(arrayDestacados))
             } else {
-                arrayDestacados = JSON.parse(localStorage.getItem("destacados"))
-                arrayDestacados.push(data)
-                localStorage.clear()
-                localStorage.setItem("destacados",JSON.stringify(arrayDestacados))
+                /*let destacados = JSON.parse(localStorage.getItem("destacados"))
+                let repetido = destacados.map((destacado)=> {
+                    console.log(destacado["id"])
+                    return destacado["id"] == identificador ? true : false
+                })
+                console.log(repetido)*/
+                let repetido = false
+                if (!repetido){
+                    arrayDestacados = JSON.parse(localStorage.getItem("destacados"))
+                    arrayDestacados.push(data)
+                    localStorage.clear()
+                    localStorage.setItem("destacados",JSON.stringify(arrayDestacados))
+                } else {
+                    alert("Dentista ya en destacados")
+                }
+                
             }
             return dispatch({type:"addFav"})
           };

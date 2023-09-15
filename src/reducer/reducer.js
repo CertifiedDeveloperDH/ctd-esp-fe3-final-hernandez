@@ -12,12 +12,9 @@ function reducer(state, action){
             loading:false,
         }
         case 'changeTheme':
-            if (state === "light"){
-                state = "dark"
-            } else if (state === "dark"){
-                state = "light"
+            return {...state,
+                opcion: action.payload
             }
-            return state
         case 'addFav':
             return {...state,
                 data: action.payload, 

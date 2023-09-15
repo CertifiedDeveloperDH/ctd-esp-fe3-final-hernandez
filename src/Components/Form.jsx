@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState , useContext} from "react";
 import styles from "./Form.module.css";
 import Mensaje from '../Components/Mensaje.jsx'
+import { themeContext } from "../context/themeContext";
+
 const Form = () => {
     const [nombre, setNombre] = useState("")
     const [email, setEmail] = useState("")
     const [success, setSuccess] = useState("")
     const [submited, setSubmited] = useState(false)
-    let {theme} = "light"
+    let {theme, changeTheme} = useContext(themeContext) 
+    
     const validarNombre = (nombre) => {
         let sinEspacios = nombre.trim()
         if (sinEspacios.length > 5){
@@ -32,7 +35,7 @@ const Form = () => {
   return (
     <>
     <div
-        className={`text-center card container ${{theme} = "light" ? styles.card : styles.cardDark}`}
+        className={`text-center card container ${theme.opcion == "light" ? styles.card : styles.cardDark}`}
       >
         <div className={`card-body ${styles.CardBody}`}>
           <form onSubmit={handleSubmit}>

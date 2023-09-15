@@ -4,12 +4,14 @@ import { useContext } from 'react'
 import {useParams} from 'react-router-dom'
 import { dentistContext } from '../context/apiContext.jsx'
 import styles from "../Components/DetailCard.module.css"
+import { themeContext } from '../context/themeContext.jsx'
 
 const Detail = () => {
     let params = useParams()
     let {state, fetchDentist} = useContext(dentistContext)
     const [datos, setDatos] = useState({})
-    let {theme} = "light"
+    let {theme, changeTheme} = useContext(themeContext)
+
     const retreiveDentist = useCallback(async () => {
         const data = await fetchDentist(params.id)
         return data
@@ -25,7 +27,7 @@ const Detail = () => {
     return(
         <>
         <h1>Detail Dentist {params.id} </h1>
-        <section className="card col-sm-12 col-lg-6 container">
+        <section className={`card ${theme.opcion == "dark" ? "text-white" : ""} bg-${theme.opcion} col-sm-12 col-lg-6 container`}>
             <div
             className={`card-body row`}
             >

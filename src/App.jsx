@@ -7,6 +7,7 @@ import Footer from './Components/Footer.jsx'
 import Navbar from './Components/Navbar.jsx'
 import ApiContextProvider from './context/ApiContextProvider.jsx'
 import LocalstorageContextProvider from './context/LocalstorageContextProvider.jsx'
+import ThemeContextProvider from './context/ThemeContextProvider'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
     <>
     <ApiContextProvider>
       <LocalstorageContextProvider>
+        <ThemeContextProvider>
       <div className={'App'}>
         <Navbar/>
         <main>
@@ -22,6 +24,7 @@ function App() {
         </main>
         <Footer/>
       </div>
+      </ThemeContextProvider>
       </LocalstorageContextProvider>
       </ApiContextProvider>
     </>

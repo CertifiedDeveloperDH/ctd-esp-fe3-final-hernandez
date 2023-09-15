@@ -10,7 +10,7 @@ const ApiContextProvider = ({children}) => {
             "https://jsonplaceholder.typicode.com/users"
         );
         const data = await response.json();
-        console.log(data)
+        //console.log(data)
         return dispatch({type:"fetchApi", payload:data, loading:true})
     };
     const fetchDentist = async (identificador) => {
@@ -18,7 +18,7 @@ const ApiContextProvider = ({children}) => {
             `https://jsonplaceholder.typicode.com/users/${identificador}`
         );
         const data = await response.json();
-        console.log(data)
+        //console.log(data)
         return dispatch({type:"fetchDentist", payload:data, loading:true})
     }
     return (

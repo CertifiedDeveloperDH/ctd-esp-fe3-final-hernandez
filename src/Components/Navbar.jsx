@@ -1,20 +1,15 @@
 import {Link} from 'react-router-dom'
 import styles from "./Navbar.module.css";
-import { useState } from 'react';
+import { themeContext } from '../context/themeContext';
+import { useContext } from 'react';
 
 const Navbar = () => {
-    let {theme} ="light"
-    let changeTheme = () => {
-        if (theme =="light"){
-            theme = "dark"
-        } else if (theme == "dark"){
-            theme = "light"
-        }
-    }
+    let {theme, changeTheme} = useContext(themeContext) 
+    //console.log(theme.opcion)
     return (
         <header className="sticky-top">
       <nav
-        className={`navbar navbar-expand-sm navbar-${theme} bg-${theme}`}
+        className={`navbar navbar-expand-sm navbar-${theme.opcion} bg-${theme.opcion}`}
         aria-label="Third navbar example"
       >
         <div className="container">
@@ -55,11 +50,11 @@ const Navbar = () => {
               </li>
               <li className={`nav-item`}>
                 <button
-                  className={`btn btn-${theme} ${styles.btnStyle
+                  className={`btn btn-${theme.opcion} ${styles.btnStyle
                     }`}
-                    onClick={()=>changeTheme()}
+                    onClick={changeTheme}
                 >
-                  {theme = "light" ? (<>🌙</>):(<>☀</>)}
+                  {theme.opcion == "light" ? (<>🌙</>):(<>☀</>)}
                 </button>
               </li>
             </ul>
