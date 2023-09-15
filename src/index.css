@@ -21,6 +21,16 @@ h1{
   padding: 2rem 0;
 }
 
+h2{
+  text-align: center;
+  padding: 2rem 0;
+}
+
+p{
+  text-align: center;
+  padding: 2rem 0;
+}
+
 .navbar-nav{
   align-items: center;
 }

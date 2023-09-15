@@ -5,7 +5,7 @@ const Mensaje = ({success, nombre, submited}) => {
                 return (
                     <>
                     <div className="alert alert-success alert-dismissible">
-                        <button type="button" className="close" data-dismiss="alert">&times;</button>
+                        <button type="button" className="btn-close" data-dismiss="alert">&times;</button>
                         <strong></strong> Gracias {nombre}, te contactaremos cuanto antes vía mail</div>
                         </>
                 )
@@ -13,7 +13,7 @@ const Mensaje = ({success, nombre, submited}) => {
                 return (
                     <>
                     <div className="alert alert-danger alert-dismissible">
-                    <button type="button" className="close" data-dismiss="alert">&times;</button>
+                    <button type="button" className="btn-close" data-dismiss="alert">&times;</button>
                     <strong> "Por favor verifique su información nuevamente"</strong> </div>
                     </>
                 )

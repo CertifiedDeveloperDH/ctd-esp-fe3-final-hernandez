@@ -1,11 +1,12 @@
 import { useState } from "react";
+import styles from "./Form.module.css";
 import Mensaje from '../Components/Mensaje.jsx'
 const Form = () => {
     const [nombre, setNombre] = useState("")
     const [email, setEmail] = useState("")
     const [success, setSuccess] = useState("")
     const [submited, setSubmited] = useState(false)
-
+    let {theme} = "light"
     const validarNombre = (nombre) => {
         let sinEspacios = nombre.trim()
         if (sinEspacios.length > 5){
@@ -30,8 +31,13 @@ const Form = () => {
 
   return (
     <>
+    <div
+        className={`text-center card container ${{theme} = "light" ? styles.card : styles.cardDark}`}
+      >
+        <div className={`card-body ${styles.CardBody}`}>
           <form onSubmit={handleSubmit}>
             <input
+              className={`form-control ${styles.inputSpacing}`}
               placeholder="Nombre Completo"
               name="nombre"
               value={nombre}
@@ -39,17 +45,20 @@ const Form = () => {
               required
             />
             <input
+              className={`form-control ${styles.inputSpacing}`}
               placeholder="Email"
               name="email"
               value={email}
               onChange={(e) => {setEmail(e.target.value)}}
               required
             />
-            <button type="submit">
-              Send
+            <button className="btn btn-primary" type="submit">
+              Enviar
             </button>
           </form>
           <Mensaje success={success} nombre={nombre} submited={submited}/>
+        </div>
+      </div>
     </>
   );
 };
