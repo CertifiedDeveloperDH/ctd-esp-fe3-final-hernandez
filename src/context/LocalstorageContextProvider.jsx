@@ -16,22 +16,29 @@ const LocalstorageContextProvider = ({children}) => {
                 arrayDestacados.push(data)
                 localStorage.setItem("destacados", JSON.stringify(arrayDestacados))
             } else {
-                /*let destacados = JSON.parse(localStorage.getItem("destacados"))
-                let repetido = destacados.map((destacado)=> {
-                    console.log(destacado["id"])
-                    return destacado["id"] == identificador ? true : false
-                })
-                console.log(repetido)*/
+                arrayDestacados = JSON.parse(localStorage.getItem("destacados"))
                 let repetido = false
-                if (!repetido){
-                    arrayDestacados = JSON.parse(localStorage.getItem("destacados"))
+                arrayDestacados.forEach((destacado)=>{
+                    console.log(destacado)
+                    let claves = Object.keys(destacado)
+                    let valores = Object.values(destacado)
+                    console.log(claves)
+                    console.log(valores)
+                    let indexId = claves.indexOf("id")
+                    console.log(valores[indexId])
+                    console.log(identificador)
+                    if (valores[indexId] == identificador){
+                        repetido = true
+                    }
+                })  
+                console.log(repetido)
+                if (repetido == false){
                     arrayDestacados.push(data)
                     localStorage.clear()
                     localStorage.setItem("destacados",JSON.stringify(arrayDestacados))
                 } else {
-                    alert("Dentista ya en destacados")
+                    alert("Dentista ya agregado a destacados")
                 }
-                
             }
             return dispatch({type:"addFav"})
           };
