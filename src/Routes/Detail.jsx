@@ -22,8 +22,6 @@ const Detail = () => {
             setDatos(state.data)
         }
     },[state.data])
-    console.log(state.data)
-    console.log(datos)
     return(
         <>
         <h1>Detail Dentist {params.id} </h1>

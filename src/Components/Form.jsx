@@ -24,11 +24,10 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setSubmited(true)
-    
-    if (!validarNombre(nombre) || !validarEmail(email)){
-      setSuccess(false)
-    } else{
+    if (validarNombre(nombre) && validarEmail(email)){
       setSuccess(true)
+    } else{
+      setSuccess(false)
     }
   };
 
